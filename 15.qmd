@@ -1,0 +1,22 @@
+## Semantic Search
+
+### Set a default embedding model
+
+``` bash
+llm embed-models default text-embedding-3-small
+```
+
+### Embed some data
+
+``` bash
+llm embed-multi followers followers.json --store
+```
+
+### "Fuzzy search" the embedded data
+
+``` bash
+llm similar followers -c "data science" -n 5
+
+# Chain commands to "chat with your data"
+llm similar followers -c "fine-tuning" | llm "Which of my followers is the best person to ask about fine-tuning?"
+```

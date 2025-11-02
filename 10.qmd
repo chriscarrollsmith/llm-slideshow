@@ -1,0 +1,15 @@
+## Bonus `repomix` tricks
+
+### Filter with --include\` and glob patterns
+
+``` bash
+repomix --include "*.sh,README.md"
+```
+
+### Pack a Github repository with `--remote`
+
+``` bash
+repomix --remote https://github.com/Promptly-Technologies-LLC/etielle
+
+llm -f repomix-output.xml "Can I use this library to map JSON to my DB?"
+```

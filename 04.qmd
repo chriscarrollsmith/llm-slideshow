@@ -1,0 +1,20 @@
+## Install `llm`
+
+``` bash
+uv tool install llm
+```
+
+## Install provider extensions (optional)
+
+``` bash
+llm install \
+    llm-deepseek \  # To use Deepseek models
+    llm-gemini \    # To use Google models
+    llm-openrouter  # For multi-provider access with one API key
+```
+
+## Set provider API key(s)
+
+``` bash
+llm keys set openai
+```

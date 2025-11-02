@@ -1,0 +1,13 @@
+## Learn the command line with *templates*
+
+### Create a template with `--save`
+
+``` bash
+llm --system "You are a Linux command-line copilot running in WSL2 with the following Linux distribution: $(cat /etc/*-release)" --save linux
+```
+
+### Use it with `--template`
+
+``` bash
+llm "How could I split a PDF by page range?" --template linux
+```

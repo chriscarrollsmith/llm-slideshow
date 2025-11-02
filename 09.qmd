@@ -1,0 +1,22 @@
+## **Whole-repository Q&A** with *fragments*
+
+### Install `repomix`
+
+``` bash
+npm install -g repomix
+```
+
+### Pack repository into a single file
+
+``` bash
+# Pack repository to `repomix-output.xml`
+repomix
+```
+
+### Attach packed file as a *fragment* to LLM prompt
+
+``` bash
+llm -m deepseek-chat \
+    -f repomix-output.xml \
+    "Give me a step-by-step plan to add user auth." >> plan.md
+```

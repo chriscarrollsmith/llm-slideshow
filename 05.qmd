@@ -1,0 +1,21 @@
+## See available models
+
+``` bash
+llm models
+```
+
+## Alias models for ease of use
+
+``` bash
+llm aliases set \
+    qwen-2.5 \                                  
+    openrouter/qwen/qwen-2.5-72b-instruct:free  # model name
+```
+
+## Prompt a specific model
+
+``` bash
+llm \
+    -m qwen-2.5 \  # model
+    "How many 'r's are in 'strawberrrry'?"           # prompt
+```

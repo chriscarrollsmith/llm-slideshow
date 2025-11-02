@@ -1,0 +1,16 @@
+## **Data extraction** with structured outputs
+
+### Install `strip-tags`
+
+``` bash
+uv tool install strip-tags
+```
+
+### Extract JSON with `--schema-multi`
+
+``` bash
+curl -o- https://github.com/chriscarrollsmith?tab=followers | \
+    strip-tags --minify | \
+    llm "Extract followers" --schema-multi "id str: user screen name, content str: user bio (default 'Github user')" | \
+    jq '[.items[]]' > followers.json
+```

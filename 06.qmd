@@ -1,0 +1,13 @@
+## Additional prompting patterns
+
+### Continue conversation from last message
+
+```         
+llm -c "Interesting. Tell me more about that."
+```
+
+### Attach audio, video, or image files
+
+```         
+llm -a example.png "Describe the image."
+```

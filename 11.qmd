@@ -1,0 +1,7 @@
+## **Progress reporting** with `--xl`
+
+``` bash
+git log --since="2025-01-01" | llm -m openrouter/z-ai/glm-4.6 "Identify phases or milestones in the git log and make an SVG timeline showing progress on this repository since January 1. Include explicit width and height attributes on the <svg> tag, escape special characters, and ensure all elements fit within the viewBox bounds." --xl > progress.svg  # Extract fenced code and save to a file
+```
+
+You can then provide this timeline to your client in a progress report.
