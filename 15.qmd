@@ -1,22 +1,16 @@
-## Semantic Search
+## **Data extraction** with structured outputs
 
-### Set a default embedding model
+### Install `strip-tags`
 
 ``` bash
-llm embed-models default text-embedding-3-small
+uv tool install strip-tags
 ```
 
-### Embed some data
+### Extract JSON with `--schema-multi`
 
 ``` bash
-llm embed-multi followers followers.json --store
-```
-
-### "Fuzzy search" the embedded data
-
-``` bash
-llm similar followers -c "data science" -n 5
-
-# Chain commands to "chat with your data"
-llm similar followers -c "fine-tuning" | llm "Which of my followers is the best person to ask about fine-tuning?"
+curl -o- https://github.com/chriscarrollsmith?tab=followers | \
+    strip-tags --minify | \
+    llm "Extract followers" --schema-multi "id str: user screen name, content str: user bio (default 'Github user')" | \
+    jq '[.items[]]' > followers.json
 ```

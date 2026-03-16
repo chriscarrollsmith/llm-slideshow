@@ -9,5 +9,11 @@ llm -c "Interesting. Tell me more about that."
 ### Attach audio, video, or image files
 
 ```         
-llm -a example.png "Describe the image."
+llm -a images/example.png "Describe the image."
+```
+
+## Multi-turn chat session
+
+```bash
+llm chat
 ```

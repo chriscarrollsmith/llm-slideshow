@@ -1,0 +1,19 @@
+## Give `llm` a tool via a Python module
+
+Write a type-annotated Python function with usage instructions in the docstring, then pass it to `llm` with `-T`.
+
+```python
+# functions/render_svg.py
+
+def render_svg(prompt: str) -> str:
+    """Render prompt as SVG.
+
+    Usage:
+      render_svg("A pelican riding a bicycle")
+    """
+    ...
+```
+
+```bash
+llm -T functions/render_svg.py "Make me a pelican riding a bicycle"
+```

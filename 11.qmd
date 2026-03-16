@@ -1,7 +1,22 @@
-## **Progress reporting** with `--xl`
+## **Whole-repository Q&A** with *fragments*
+
+### Install `repomix`
 
 ``` bash
-git log --since="2025-01-01" | llm -m openrouter/z-ai/glm-4.6 "Identify phases or milestones in the git log and make an SVG timeline showing progress on this repository since January 1. Include explicit width and height attributes on the <svg> tag, escape special characters, and ensure all elements fit within the viewBox bounds." --xl > progress.svg  # Extract fenced code and save to a file
+npm install -g repomix
 ```
 
-You can then provide this timeline to your client in a progress report.
+### Pack repository into a single file
+
+``` bash
+# Pack repository to `repomix-output.xml`
+repomix
+```
+
+### Attach packed file as a *fragment* to LLM prompt
+
+``` bash
+llm -m deepseek-chat \
+    -f repomix-output.xml \
+    "Give me a step-by-step plan to add user auth." >> plan.md
+```

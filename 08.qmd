@@ -1,13 +1,7 @@
-## Learn the command line with *templates*
+## Example: multi-turn tool conversation
 
-### Create a template with `--save`
-
-``` bash
-llm --system "You are a Linux command-line copilot running in WSL2 with the following Linux distribution: $(cat /etc/*-release)" --save linux
-```
-
-### Use it with `--template`
-
-``` bash
-llm "How could I split a PDF by page range?" --template linux
+```bash
+llm -m gemini-3-flash-preview --functions functions/render_svg.py "Make me a pelican riding a bicycle"
+llm -c -m gemini-3-flash-preview --functions functions/render_svg.py "Give the pelican a top hat"
+llm -c -m gemini-3-flash-preview --functions functions/render_threejs.py "Turn it into a 3D scene"
 ```

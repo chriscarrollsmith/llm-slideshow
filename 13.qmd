@@ -1,16 +1,7 @@
-## **Data extraction** with structured outputs
-
-### Install `strip-tags`
+## **Progress reporting** with `--xl`
 
 ``` bash
-uv tool install strip-tags
+git log --since="2025-01-01" | llm -m openrouter/z-ai/glm-4.6 "Identify phases or milestones in the git log and make an SVG timeline showing progress on this repository since January 1. Include explicit width and height attributes on the <svg> tag, escape special characters, and ensure all elements fit within the viewBox bounds." --xl > progress.svg  # Extract fenced code and save to a file
 ```
 
-### Extract JSON with `--schema-multi`
-
-``` bash
-curl -o- https://github.com/chriscarrollsmith?tab=followers | \
-    strip-tags --minify | \
-    llm "Extract followers" --schema-multi "id str: user screen name, content str: user bio (default 'Github user')" | \
-    jq '[.items[]]' > followers.json
-```
+You can then provide this timeline to your client in a progress report.

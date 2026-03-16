@@ -1,15 +1,13 @@
-## Bonus `repomix` tricks
+## Learn the command line with *templates*
 
-### Filter with --include\` and glob patterns
+### Create a template with `--save`
 
 ``` bash
-repomix --include "*.sh,README.md"
+llm --system "You are a Linux command-line copilot running in WSL2 with the following Linux distribution: $(cat /etc/*-release)" --save linux
 ```
 
-### Pack a Github repository with `--remote`
+### Use it with `--template`
 
 ``` bash
-repomix --remote https://github.com/Promptly-Technologies-LLC/etielle
-
-llm -f repomix-output.xml "Can I use this library to map JSON to my DB?"
+llm "How could I split a PDF by page range?" --template linux
 ```
